@@ -1,4 +1,4 @@
-package com.microservice2.cammelservice;
+package com.microservice2.cammelservice.model;
 
 import java.math.BigDecimal;
 

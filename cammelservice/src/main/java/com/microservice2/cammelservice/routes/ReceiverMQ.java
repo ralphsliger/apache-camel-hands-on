@@ -1,18 +1,20 @@
-package com.microservice2.cammelservice.config;
+package com.microservice2.cammelservice.routes;
 
 
-import com.microservice2.cammelservice.Currency;
-import com.microservice2.cammelservice.CurrencyExchangeTransformations;
+import com.microservice2.cammelservice.model.Currency;
+import com.microservice2.cammelservice.port.CurrencyExchange;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.model.dataformat.JsonLibrary;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Receiver extends RouteBuilder {
+public class ReceiverMQ extends RouteBuilder {
 
     @Autowired
-    CurrencyExchangeTransformations currencyExchangeTransformations;
+    @Qualifier("usa")
+    CurrencyExchange currencyExchangeTransformations;
 
     @Override
     public void configure() throws Exception {
